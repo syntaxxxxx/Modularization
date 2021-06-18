@@ -1,0 +1,9 @@
+include ':app'
+include ':abstraction'
+project(':abstraction').projectDir = new File("./libraries/abstraction")
+include ':network'
+project(':network').projectDir = new File("./libraries/network")
+include ':movie'
+project(':movie').projectDir = new File("./features/movie")
+include ':movie_details'
+project(':movie_details').projectDir = new File("./features/movie_details")

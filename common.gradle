@@ -1,0 +1,63 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs"
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation rootProject.ext.main.kotlin
+    implementation rootProject.ext.main.coreKtx
+    implementation rootProject.ext.main.appCompat
+    implementation rootProject.ext.main.googleMaterial
+    implementation rootProject.ext.main.constraintLayout
+    implementation rootProject.ext.architectureComponents.viewmodelKtx
+    implementation rootProject.ext.architectureComponents.livedataKtx
+    implementation rootProject.ext.architectureComponents.navigatioRuntime
+    implementation rootProject.ext.architectureComponents.navigationUi
+    implementation rootProject.ext.architectureComponents.navigationFragment
+    implementation rootProject.ext.architectureComponents.lifecycleCommon
+    implementation rootProject.ext.architectureComponents.collectionKtx
+    implementation rootProject.ext.architectureComponents.fragmentKtx
+    implementation rootProject.ext.architectureComponents.lifecycleKtx
+    implementation rootProject.ext.misc.coroutinesCore
+    implementation rootProject.ext.misc.coroutinesAndroid
+    implementation rootProject.ext.misc.moshi
+    implementation rootProject.ext.misc.moshiKotlin
+    implementation rootProject.ext.misc.converterMoshi
+    implementation rootProject.ext.misc.hiltAndroid
+    kapt rootProject.ext.misc.hiltAndroidCompiler
+    implementation rootProject.ext.misc.glide
+    testImplementation rootProject.ext.testing.junit
+    androidTestImplementation rootProject.ext.testing.extJunit
+    androidTestImplementation rootProject.ext.testing.espressoCore
+}

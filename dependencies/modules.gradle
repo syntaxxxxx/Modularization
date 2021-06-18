@@ -1,0 +1,13 @@
+ext {
+
+    libraries = [
+            "abstraction"       : ":abstraction",
+            "network"           : ":network"
+    ]
+
+    features = [
+            "movie"             : ":movie",
+            "movie_details"     : ":movie_details"
+    ]
+
+}
